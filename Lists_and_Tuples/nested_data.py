@@ -37,9 +37,3 @@ albums = [
      ]
      ),
 ]
-
-# Add your code below this comment
-print(albums[1][3][5][1])
-print(albums[2][2])
-print(albums[3][3][2][0])
-print(albums[2][3][1])
