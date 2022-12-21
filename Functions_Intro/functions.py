@@ -1,39 +1,64 @@
 def multiply(x, y):
+    """
+    Multiply 2 numbers.
+
+    Although this function is intended to multiply 2 numbers,
+    you can also use it to multiply a sequence.  If you pass
+    a string, for example, as the first argument, you'll get
+    the string repeated `y` times as the returned value.
+
+    :param x: The first number to multiply.
+    :param y: The number to multiply `x` by.
+    :return: The product of `x` and `y`.
+    """
     result = x * y
     return result
 
 
-def isPalindrome(string):
-    # backwards = string[::-1]
-    # return backwards == string
+def is_palindrome(string):
+    """
+    Check if a string is a palindrome.
+
+    A palindrome is a string that reads the same forwards as backwards.
+
+    :param string: The string to check.
+    :return: True if `string` is a palindrome, False otherwise.
+    """
     return string[::-1].casefold() == string.casefold()
 
 
-# word = input("Please enter a word to check if it is a palindrome")
-# if isPalindrome(word):
-#     print("{}. is a palindrome".format(word))
-# else:
-#     print("{} is not a palindrome".format(word))
+def palindrome_sentence(sentence):
+    """
+    Check if a sentence is a palindrome.
 
+    The function ignores whitespace, capitalisation and
+    punctuation in the sentence.
 
-def isPalindromeSentence(string):
-    newString = ""
-    for char in string:
+    :param sentence: The sentence to check.
+    :return: True if `sentence` is a palindrome, False otherwise.
+    """
+    string = ""
+    for char in sentence:
         if char.isalnum():
-            newString += char
-    print(newString)
-    # return newString.casefold() == newString[::-1].casefold()
-    return isPalindrome(newString)
+            string += char
+    return is_palindrome(string)
 
 
-#
-#
-# sentence = input("Please input a sentence \n")
-#
-# if isPalindromeSentence(sentence):
-#     print(print("It is a palindrome"))
-# else:
-#     print("{} is not a palindrome".format(sentence))
+def fibonacci(n):
+    """Return the n'th Fibonacci number, for positive n."""
+    if 0 <= n <= 1:
+        return n
 
-answer = multiply(18, 3)
-print(answer)
+    n_minus1, n_minus2 = 1, 0
+
+    result = None
+    for f in range(n - 1):
+        result = n_minus2 + n_minus1
+        n_minus2 = n_minus1
+        n_minus1 = result
+
+    return result
+
+
+for i in range(36):
+    print(i, fibonacci(i))
