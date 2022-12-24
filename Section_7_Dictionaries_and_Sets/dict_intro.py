@@ -16,6 +16,7 @@ vehicles = {
 # learner = vehicles.get("ER5".casefold())
 # print(learner)
 
+
 # for key in vehicles:
 #     print(key, vehicles[key], sep=", ")
 for key, value in vehicles.items():
