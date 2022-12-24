@@ -1,4 +1,10 @@
-def banner_text(text,width):
+def banner_text(text: str = "",width: int = 80) -> None:
+    """
+    Centers the text inside the banner which is enclosed by **
+    :param text: The text that must be placed inside the banner
+    :param width: The screem width of the banner
+    :raise: If the string is not long enough
+    """
     screen_width = width
     if len(text) > screen_width - 4:
         raise ValueError("String {0} is larger then specified width {1}"

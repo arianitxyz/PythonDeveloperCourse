@@ -1,14 +1,14 @@
-def banner_text(text):
-    screen_width = 80
-    if len(text) > screen_width - 4:
-        print("EEK!!")
-        print("The text is to long to fit in the specified width")
+def factorial(n: int) -> int:
+    """Return n! (0! is 1)."""
+    if n <= 1:
+        return 1
 
-    if text == "*":
-        print("*" * screen_width)
-    else:
-        output_string = "**{0}**".format(text.center(screen_width - 4))
-        print(output_string)
+    result = 2
+    for x in range(3, n + 1):
+        result *= x
+
+    return result
 
 
-banner_text("test")
+for i in range(36):
+    print(i, factorial(i))
