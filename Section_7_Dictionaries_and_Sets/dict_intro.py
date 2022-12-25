@@ -7,7 +7,26 @@ vehicles = {
     'tenere': 'Yamaha XT650',
     'jimny': 'Suzuki Jimny 1.5',
     'fiesta': 'Ford Fiesta Ghia 1.4',
+    'roadster': 'Yamaha XT650',
 }
+
+vehicles["starfighter"] = "Lockhead F-104"
+vehicles["learjet"] = "Bombardier Learjet 75"
+vehicles["toy"] = "Glider"
+
+#upgrade the virago
+vehicles['virago']="Yamaha XV535"
+
+#deleting items in the dictionary
+del vehicles["starfighter"]
+result =  vehicles.pop("F1", None)
+print(result)
+plane = vehicles.pop("learjet")
+print(plane)
+bike = vehicles.pop("tenere", "not present")
+print(bike)
+print()
+
 
 # my_car = vehicles['fiesta']
 # print(my_car)
