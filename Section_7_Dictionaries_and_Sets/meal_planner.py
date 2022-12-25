@@ -5,10 +5,11 @@ from contents import pantry, recipes
 # display_dict={str(index +1):meal for index, meal in enumerate(recipes)}
 def add_to_shopping_dict(data: dict, item: str, amount: int):
     """Adds the missing amount of items to the shopping list"""
-    if item in data:
-        data[item] += amount
-    else:
-        data[item] = amount
+    # if item in data:
+    #     data[item] += amount
+    # else:
+    #     data[item] = amount
+    data[item] = data.setdefault(item, 0) + amount
 
 
 display_dict = {}
@@ -42,8 +43,5 @@ while True:
                 shopping_list.append({quantity_to_buy, food_item})
                 add_to_shopping_dict(shopping_dict, food_item, quantity_to_buy)
 
-        print(shopping_list)
-        print(shopping_dict)
 
-for thing in shopping_dict.items():
-    print(thing)
+print(shopping_dict)
