@@ -14,7 +14,7 @@
 #
 # For example:
 #
-# If the `text` was "abcbcc", your `word_count` dictionary will have 3 key value pairs:
+# If the `text` was "abc bcc", your `word_count` dictionary will have 3 key value pairs:
 #
 #
 # 'a': 1, 'b': 2 and 'c': 3
@@ -28,6 +28,7 @@ character_count = {}
 
 def count_characters(text: str):
     for char in text:
+        char = char.casefold()
         character_count[char] = character_count.setdefault(char, 0) + 1
     print(sorted(character_count.items()))
 
@@ -38,7 +39,7 @@ test = "Lorem Ipsum is simply dummy text of the printing and typesetting industr
        " make" \
        " a type specimen book. It has survived not only five centuries, but also the leap into electronic " \
        "typesetting, " \
-       "remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets " \
+       "remaining essentially unchanged. It was popularised in the 1960s with the release of getset sheets " \
        "containing " \
        "Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including " \
        "versions of Lorem Ipsum."
