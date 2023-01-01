@@ -1,3 +1,6 @@
+"""This code does not work - it is just for educational purposes"""
+
+
 data = [
     ("orange", "a sweet, orange, citrus fruit"),
     ("apple", "good for making cider"),
@@ -5,6 +8,7 @@ data = [
     ("grape", "a small, sweet fruit growing in bunches"),
     ("melon", "sweet and juicy"),
 ]
+
 
 # print(ord("a"))
 # print(ord("b"))
@@ -17,7 +21,28 @@ def simple_hash(s: str) -> int:
     return basic_hash % 10
 
 
+def get(k: str) -> str:
+    """Return the value for the key or NONE if it does not exist"""
+    hash_code = simple_hash(k)
+    if value[hash_code]:
+        return value[hash_code]
+    else:
+        return None
+
+
+keys = [""] * 10
+values = keys.copy()
+
 for key, value in data:
     # h = simple_hash(key)
     h = hash(key)
     print(key, h)
+    keys[h] = key
+    values[h] = value
+
+print()
+print(keys)
+print(values)
+print()
+value = get("banana")
+print(value)
