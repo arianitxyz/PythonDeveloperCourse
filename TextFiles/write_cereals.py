@@ -20,5 +20,6 @@ column_headings = ["Cereal", "Calories", "Fat", "Protein", "Fibre", "Vitamin E"]
 output_filename = 'my_cereals.csv'
 
 with open(output_filename, 'w', encoding='utf-8', newline='') as output_file:
-    writer = csv.writer(output_file)
-    writer.writerow(cereals)
+    writer = csv.writer(output_file, quoting=csv.QUOTE_NONNUMERIC)
+    writer.writerow(column_headings)
+    writer.writerows(cereals)

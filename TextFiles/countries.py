@@ -18,7 +18,7 @@ with open(filename) as country_file:
         print(country_dict)
         countries[country.casefold()] = country_dict
         # code_lookup[code.casefold()] = country
-        countries[code.casefold()] = country_dict # adds e secondary key to the dict (country code)
+        countries[code.casefold()] = country_dict  # adds e secondary key to the dict (country code)
 
 print(countries)
 
