@@ -48,16 +48,18 @@ def next_invoice_number(invoice_number: str) -> str:
 
 def record_invoice(invoice_file: TextIO,
                    company: str,
-                   amount: float) -> int:
+                   amount: float,
+                   last_line_ptr: int = 0,
+                   ) -> int:
     """Create a new invoice number, and write it to a file on disk.
 
     :param invoice_file: An open text file, opened using r+.
     :param company: The name of the company being invoiced.
     :param amount: The amount of the invoice.
+    :param last_line_ptr: The position of the last line.
     :return last_line_ptr: The position of the start of the
         last line. This will be obtained by the previous call to 'record invoice'
     """
-    last_line_ptr = 0
     invoice_file.seek(last_line_ptr, SEEK_SET)
     last_row = ""
     for line in invoice_file:
@@ -75,11 +77,12 @@ def record_invoice(invoice_file: TextIO,
     print(f'{new_invoice_number}\t{company}\t{amount}', file=invoice_file)
     return last_line_ptr
 
+
 data_file = 'invoices.csv'
 
 with open(data_file, 'r+') as invoices:
-    record_invoice(invoices, 'ACME Roadrunner', 21.30)
-    record_invoice(invoices, 'Squirel Storage', 320.55)
+    last_line = record_invoice(invoices, 'ACME Roadrunner', 21.30)
+    last_line = record_invoice(invoices, 'Squirel Storage', 320.55, last_line)
 
 # # Test code:
 # current_year = get_year()
@@ -99,6 +102,8 @@ with open(data_file, 'r+') as invoices:
 #
 #     new_number = next_invoice_number(test_string)
 #     if next_number == new_number:
+#
+#
 #         print(f'New number {new_number} generated correctly for {test_string}')
 #     else:
 #         print(f'New number {new_number} is not correct for {test_string}')
